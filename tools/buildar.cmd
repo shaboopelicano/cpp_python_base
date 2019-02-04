@@ -1,0 +1,1 @@
+cl /Zi main.cpp /IC:\Python27\include /link /LIBPATH:C:\Python27\libs user32.lib kernel32.lib gdi32.lib

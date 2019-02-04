@@ -1,0 +1,6 @@
+{
+    "terminal.integrated.shellArgs.windows": [
+        "/k","%cd%\\tools\\iniciar-cl.cmd"
+    ],
+    "terminal.integrated.shell.windows": "C:\\Windows\\system32\\cmd.exe"
+}
