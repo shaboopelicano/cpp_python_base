@@ -2,5 +2,21 @@
     "terminal.integrated.shellArgs.windows": [
         "/k","%cd%\\tools\\iniciar-cl.cmd"
     ],
-    "terminal.integrated.shell.windows": "C:\\Windows\\system32\\cmd.exe"
+    "terminal.integrated.shell.windows": "C:\\Windows\\system32\\cmd.exe",
+
+    "C_Cpp.default.includePath": [
+        "${workspaceRoot}",
+        "${workspaceRoot}/include",
+        // "C:/MinGW/include",
+        // "C/mingw_dev_lib/x86_64-w64-mingw32/include",
+        "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.17763.0\\um",
+        "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.17763.0\\shared",
+        "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.17763.0\\ucrt",
+        "C:\\Python27\\include"
+
+    ],
+    "files.associations": {
+        "*.rh": "cpp"
+    },
+    
 }

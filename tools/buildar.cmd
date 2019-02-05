@@ -1,1 +1,1 @@
-cl /Zi main.cpp /IC:\Python27\include /link /LIBPATH:C:\Python27\libs user32.lib kernel32.lib gdi32.lib
+cl /Zi main.cpp %cd%\models\managers\GameManager.cpp %cd%\models\managers\PythonManager.cpp /IC:\Python27\include /I%cd%\include /link /LIBPATH:C:\Python27\libs user32.lib kernel32.lib gdi32.lib

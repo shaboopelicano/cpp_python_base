@@ -1,6 +1,6 @@
-#include <windows.h>
-#include <tchar.h>
-#include <Python.h>
+#include <GameManager.h>
+#include <PythonManager.h>
+#include <Config.h>
 
 #define CMD_ARGS TRUE
 
@@ -10,25 +10,21 @@ BOOL IniciarConsolePython();
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pCmdLine, int nCmdShow)
 {
 #if CMD_ARGS
-    PreferenciasRuntime(pCmdLine);
+    PythonManager* pyMng = new PythonManager;
 #endif
+    GameManager::IniciarSistemas(hInstance, nCmdShow);
+
+    // @TODO(tulio) - Mover esse códigio para outro lugar
+    // Para criar o contexto OGL
+    // https://stackoverflow.com/questions/6287660/win32-opengl-window-creation
+    MSG msg;
+    while (GetMessage(&msg, NULL, 0, 0) > 0)
+    {
+        TranslateMessage(&msg);
+        DispatchMessage(&msg);
+    }
+
+    return msg.wParam;
 }
 
-void PreferenciasRuntime(LPSTR args)
-{
 
-    // Se forem iguais retorna 0
-    if (!lstrcmp(TEXT(args), TEXT("debug")))
-        IniciarConsolePython();
-}
-
-BOOL IniciarConsolePython()
-{
-
-    PyObject *pInt;
-    Py_Initialize();
-    pInt = PyString_FromString("teste");
-    Py_Finalize();
-
-    return TRUE;
-}
