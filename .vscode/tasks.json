@@ -6,11 +6,17 @@
         {
             "label": "echo",
             "type": "shell",
-            "command": "%cd%/tools/buildar.cmd",
+            "command": "%cd%/tools/iniciar-cl.cmd && %cd%/tools/buildar.cmd && main.exe && exit",
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "presentation": {
+                "echo": true,
+                // "reveal": "never",
+                "focus": true,
+                "panel": "new"
+            }            
         }
     ]
 }
