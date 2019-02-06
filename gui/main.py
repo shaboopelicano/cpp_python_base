@@ -34,6 +34,16 @@ class StartPage(tk.Frame):
         label = tk.Label(text="Start Page",font=LARGE_FONT)
         label.pack(pady=10,padx=10)
 
+        button1 = tk.Button(self,text="Visit Page 1",command=lambda:qf("yoyoyo"))
+        button1.pack()
+
+
+
+def qf(string):
+    print(string)
+
+
+
 
 app = SeaBTCApp()
 app.mainloop()
