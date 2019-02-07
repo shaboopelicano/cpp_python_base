@@ -13,7 +13,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR pCmdLine,
     PythonManager* pyMng = new PythonManager;
 #endif
     GameManager::IniciarSistemas(hInstance, nCmdShow);
-
+    
     // @TODO(tulio) - Mover esse códigio para outro lugar
     // Para criar o contexto OGL
     // https://stackoverflow.com/questions/6287660/win32-opengl-window-creation
