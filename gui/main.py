@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk # ttk é tipo o css do tkinter
+from tkinter import ttk  # ttk é tipo o css do tkinter
 
 LARGE_FONT = ("Verdana", 12)
 
@@ -9,8 +9,8 @@ class SeaBTCApp(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
 
-        tk.Tk.iconbitmap(self,default="rad.ico")
-        tk.Tk.title(self,"Sea of BTC Client")
+        tk.Tk.iconbitmap(self, default="rad.ico")
+        tk.Tk.title(self, "Sea of BTC Client")
 
         # inicializando janela em si
         container = tk.Frame(self)
@@ -33,6 +33,15 @@ class SeaBTCApp(tk.Tk):
 
         self.show_frame(StartPage)
 
+        self.bind('<KeyPress>', self.down)
+        self.bind('<KeyRelease>', self.up)
+
+    def down(self, e):
+        print(e)
+
+    def up(self, e):
+        print(e)
+
     def show_frame(self, cont):
         frame = self.frames[cont]
         frame.tkraise()
@@ -48,11 +57,11 @@ class StartPage(tk.Frame):
         label.pack(pady=10, padx=10)
 
         button1 = ttk.Button(self, text="Visit Page 1",
-                            command=lambda: controller.show_frame(PageOne))
+                             command=lambda: controller.show_frame(PageOne))
         button1.pack()
 
         button2 = ttk.Button(self, text="Visit Page 2",
-                            command=lambda: controller.show_frame(PageTwo))
+                             command=lambda: controller.show_frame(PageTwo))
         button2.pack()
 
 # uma vez setado o pai , o pack ajeita o widget no componente pai
@@ -64,7 +73,7 @@ class PageOne(tk.Frame):
         label = ttk.Label(self, text="Page 1", font=LARGE_FONT)
         label.pack(pady=10, padx=10)
         button1 = ttk.Button(self, text="Back to Home",
-                            command=lambda: controller.show_frame(StartPage))
+                             command=lambda: controller.show_frame(StartPage))
         button1.pack()
 
 
@@ -74,7 +83,7 @@ class PageTwo(tk.Frame):
         label = ttk.Label(self, text="Page 2", font=LARGE_FONT)
         label.pack(pady=10, padx=10)
         button1 = ttk.Button(self, text="Back to Home",
-                            command=lambda: controller.show_frame(StartPage))
+                             command=lambda: controller.show_frame(StartPage))
         button1.pack()
 
 
