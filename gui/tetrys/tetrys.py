@@ -1,52 +1,41 @@
 from tkinter import *
 from time import sleep
-
-
-class Jogo(Canvas):
-    def __init__(self):
-        super().__init__()
-        self.x = 0
-
-    def atualizar(self):
-        self.pintar()
-        pass
-
-    def pintar(self):
-        self.delete("all")
-        self.x += 1
-        self.create_oval(
-            10 + self.x, 10, 80 + self.x, 80, outline="#f11",width=1)
-        pass
-
+import conts
+import jogo
 
 class Janela(Tk):
     def __init__(self, *args, **kwargs):
         Tk.__init__(self, *args, *kwargs)
-        self.canvas = Jogo()
+        self.geometry("" + str(conts.LARGURA_JANELA) +
+                      "x" + str(conts.ALTURA_JANELA))
+        self.canvas = jogo.Jogo()
         self.canvas.pack(fill=BOTH, expand=1)
-        self.canvas.create_line(15, 25, 200, 25)
 
-        self.bind('<KeyPress>', self.tratar_tecla)
+        self.bind('<KeyPress>', self.tratar_tecla_up)
+        self.bind('<KeyRelease>', self.tratar_tecla_down)
 
     def atualizar(self):
         self.canvas.atualizar()
         self.after(10, self.atualizar)
 
-    def tratar_tecla(self, evento):
+    def tratar_tecla_up(self, evento):
         tecla = evento.keycode
         if(tecla == 37):
-            print("esq")
-            return
-        if(tecla == 38):
-            print("cim")
+            self.canvas.mover_peca(-5)
             return
         if(tecla == 39):
-            print("d")
-            return
-        if(tecla == 40):
-            print("bai")
+            self.canvas.mover_peca(5)
             return
 
+
+    def tratar_tecla_down(self, evento):
+        tecla = evento.keycode
+        if(tecla == 37):
+            self.canvas.mover_peca(0)
+            return
+        if(tecla == 39):
+            self.canvas.mover_peca(0)
+            return
 
 app = Janela()
 app.after(100, app.atualizar)
